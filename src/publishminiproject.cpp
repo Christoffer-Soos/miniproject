@@ -25,11 +25,8 @@ int main(int argc, char **argv)
 
   /**
    * The advertise() function is how you tell ROS that you want to
-   * publish on a given topic name. This invokes a call to the ROS
-   * master node, which keeps a registry of who is publishing and who
-   * is subscribing.
-   * and the first paramter is what topic you're subscribing to
-   
+   * publish on a given topic name. 
+   * 
    * The second parameter to advertise() is the size of the message queue
    * used for publishing messages.  If messages are published more quickly
    * than we can send them, the number here specifies how many messages to
