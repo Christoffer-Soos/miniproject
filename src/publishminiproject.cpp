@@ -3,9 +3,7 @@
 
 #include <sstream>
 
-/**
- * This tutorial demonstrates simple sending of messages over the ROS system.
- */
+
 int main(int argc, char **argv)
 {
   /**
@@ -28,9 +26,7 @@ int main(int argc, char **argv)
    * publish on a given topic name. 
    * 
    * The second parameter to advertise() is the size of the message queue
-   * used for publishing messages.  If messages are published more quickly
-   * than we can send them, the number here specifies how many messages to
-   * buffer up before throwing some away.
+   * used for publishing messages. 
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
 
@@ -55,10 +51,7 @@ int main(int argc, char **argv)
     ROS_INFO("%s", msg.data.c_str());
 
     /**
-     * The publish() function is how you send messages. The parameter
-     * is the message object. The type of this object must agree with the type
-     * given as a template parameter to the advertise<>() call, as was done
-     * in the constructor above.
+     * The publish() function is how you send messages.
      */
     chatter_pub.publish(msg);
 
