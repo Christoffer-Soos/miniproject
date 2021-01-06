@@ -32,10 +32,7 @@ int main(int argc, char **argv)
 
   ros::Rate loop_rate(1);
 
-  /**
-   * A count of how many messages we have sent. This is used to create
-   * a unique string for each message.
-   */
+ 
   int count = 0;
   while (ros::ok())
   {
@@ -45,7 +42,7 @@ int main(int argc, char **argv)
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << "This square's areal is 0.04 " << count;
+    ss << "This square's areal is 0.09 " << count;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());

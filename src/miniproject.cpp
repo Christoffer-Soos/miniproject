@@ -130,6 +130,12 @@ int main(int argc, char** argv){ //
                ros::spinOnce();
                //return 0;
             }
+            else
+            {
+               ROS_INFO("Unlucky!");
+               ros::spinOnce();
+            }
+            
       return 0; // By defualt a main function will return zero, so can be left out
    
       }
