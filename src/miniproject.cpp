@@ -5,7 +5,7 @@
 #include "std_msgs/String.h"
 //#include "miniprojectsubscriber.h"
 
-// Our moveToGoal function, which is what makes our robot move
+// Vores moveToGoal funktion, som er hvad der får vores robot til at bevæge sig til vores hard coded koordinater
 bool moveToGoal(double xGoal, double yGoal){
 
    //define a client for to send goal requests to the move_base server through a SimpleActionClient
@@ -39,7 +39,8 @@ bool moveToGoal(double xGoal, double yGoal){
    // sychrounous which means it will block until the result is back.
    ac.waitForResult();
 
-   //we chech if the goal succeded or not and display relevent messages.
+   //Hvor vi så tjekker ved brug af et if else statement, hvor vi tjekker hvis conditionen er true eller false.
+   //Conditionen er så om robotten har bevæget sig det rigtige sted hen.
    if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
       ROS_INFO("You have reached the destination");
       return true;
@@ -53,7 +54,7 @@ bool moveToGoal(double xGoal, double yGoal){
 
 
 
-// Coordinates for the Sqaure
+// Hard coded koordinatner til firkanten som vores robot laver
 double xSquare1 = 0.3;
 double ySqaure1 = 0;
 
@@ -70,17 +71,17 @@ double ySqaure4 = -0.3;
 // Using namespace std, to make it easier to use cout, cin etc.
 using namespace std;
 
-
+//Global værdi til hvis vores MoveToGoal funktion ville fejle så vil vores main funktion ikke output at den var nået i mål
 bool goalReached = false;
 
-//ChatterCallBack Function which prints a string that says the areal of our square
+//ChatterCallBack funktionen er den funktion som printer vores areal af firkanten ud på skærmen
 void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {
   ROS_INFO("[%s]", msg->data.c_str());
   return;
 }
 
-//This is where our code starts, with our main function
+//Så begynder vores main funktion, hvor man først skal indtaste 1 for at starte programmet
 int main(int argc, char** argv){ //
 
    int input;
